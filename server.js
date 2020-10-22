@@ -24,32 +24,32 @@ const Persons = require("./models/persons");
 // Create many persons
 Persons.create([
   {
-    name: "bouthouri",
+    name: "Mariam",
     age: 27,
-    favoriteFoods: ["chicken", "meat"],
+    favoriteFoods: ["fish", "apple"],
   },
   {
-    name: "mounir",
-    age: 18,
+    name: "Zied",
+    age: 30,
   },
   {
-    name: "islem",
+    name: "Mohamed",
     age: 18,
-    favoriteFoods: ["meat", "steak", "borito"],
+    favoriteFoods: ["meat", "borito"],
   },
   {
-    name: "neyla",
-    age: 18,
+    name: "Eya",
+    age: 24,
     favoriteFoods: ["borito", "cheese"],
   },
   {
-    name: "emna",
-    age: 16,
+    name: "Arslan",
+    age: 18,
     favoriteFoods: ["borito", "cookies"],
   },
   {
-    name: "asma",
-    age: 20,
+    name: "Eva",
+    age: 22,
     favoriteFoods: ["meat", "cookies"],
   }
 ]);
@@ -82,12 +82,12 @@ Persons.findById("5f4d2641599bf15278b562d6",(err,person) => {
 })
 
 // Or use Update method
-Persons.updateOne({name:"neyla"}, { $set : {favoriteFoods : ['borito','cheese','milk'] }},err => {
+Persons.updateOne({name:"Eva"}, { $set : {favoriteFoods : ['borito','cheese','milk'] }},err => {
     if(err) console.log(err)
 } )
 
 // Find One and Update
-Persons.findOneAndUpdate({name:"bouthouri"},{age:26},{new:true},(err,person) => {
+Persons.findOneAndUpdate({name:"Mariam"},{age:25},{new:true},(err,person) => {
     if(err) console.log(err);
     else console.log(person.age)
 })
@@ -103,7 +103,7 @@ Persons.remove({age:18}, err => {
     if(err) console.log(err)
 }) 
 
-// Find persons who likes borito and sort and limit them withouri displaying the age
+// Find persons who likes borito and sort and limit them without displaying the age
 Persons.find({favoriteFoods:"meat"}).sort({name:1}).limit(2).exec((err,data)=>{
   if(err) console.log(err);
   else console.log(data)
